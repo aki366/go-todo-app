@@ -1,6 +1,7 @@
 package main
 
 import (
+		"github.com/gin-contrib/cors"
     "github.com/gin-gonic/gin"
     "todo-app/backend/controllers"
 )
@@ -8,6 +9,16 @@ import (
 func main() {
 		gin.SetMode(gin.ReleaseMode)
     router := gin.Default()
+
+		// すべてのドメインとすべてのメソッドに対するCORS
+		router.Use(cors.New(cors.Config{
+			AllowOrigins: []string{"*"},  // すべてのオリジンからのアクセスを許可
+			AllowMethods: []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
+			AllowHeaders: []string{"Origin", "Content-Type", "Accept"},
+			ExposeHeaders: []string{"Content-Length"},
+			AllowCredentials: true,
+			MaxAge: 12 * 60 * 60,  // 12 hours
+		}))
 
 		// ルートパスのハンドラーを追加
 		router.GET("/", func(c *gin.Context) {
