@@ -1,7 +1,10 @@
 terraform {
 
   # terraform_cloudからなんやかんやするように設定
-  cloud {
+  # cloud {
+  #   organization = "aki"
+  backend "remote" {
+    hostname     = "app.terraform.io"
     organization = "aki"
 
     workspaces {
