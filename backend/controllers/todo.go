@@ -4,6 +4,7 @@ import (
     "net/http"
     "github.com/gin-gonic/gin"
     "todo-app/backend/models"
+		"github.com/google/uuid"
 )
 
 // todoListにTodoのリストを格納
@@ -21,6 +22,8 @@ func AddTodo(c *gin.Context) {
         c.AbortWithStatus(http.StatusBadRequest)
         return
     }
+		// DB使ってないので、id=UUIDを生成する
+    newTodo.ID = uuid.New().String()
     todoList = append(todoList, newTodo)
     c.Status(http.StatusCreated)
 }
