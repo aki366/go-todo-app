@@ -3,7 +3,7 @@ package controllers
 import (
     "net/http"
     "github.com/gin-gonic/gin"
-    "todo-app/models"
+    "todo-app/backend/models"
 )
 
 // todoListにTodoのリストを格納
