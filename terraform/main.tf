@@ -1,11 +1,11 @@
 terraform {
 
   # terraform_cloudからなんやかんやするように設定
-  # cloud {
-  #   organization = "aki"
-  backend "remote" {
-    hostname     = "app.terraform.io"
+  cloud {
     organization = "aki"
+  # backend "remote" {
+  #   hostname     = "app.terraform.io"
+  #   organization = "aki"
 
     workspaces {
       name = "go-todo-app"
