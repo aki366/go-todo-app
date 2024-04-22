@@ -3,9 +3,6 @@ terraform {
   # terraform_cloudからなんやかんやするように設定
   cloud {
     organization = "aki"
-  # backend "remote" {
-  #   hostname     = "app.terraform.io"
-  #   organization = "aki"
 
     workspaces {
       name = "go-todo-app"
@@ -37,7 +34,3 @@ provider "aws" {
   #   }
   # }
 }
-
-# resource "aws_vpc" "main" {
-#   cidr_block = "10.0.0.0/16"
-# }
